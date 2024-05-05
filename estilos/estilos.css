@@ -1,0 +1,449 @@
+*{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+ /* Estilos para el header */
+header{
+  margin-bottom: 5px;
+}
+h1{
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+ /* Estilos para el header */
+.pinicio {
+  background-color: #78cdd7; /* Color de fondo */
+  display: flex; /* Utilizar flexbox */
+  flex-direction: column; /* Apilar elementos verticalmente */
+  justify-content: center; /* Centrar verticalmente los elementos */
+  align-items: center; /* Centrar horizontalmente los elementos */
+  padding: 10px; /* Espaciado interno */
+  flex-wrap: wrap; /* Permitir envolver elementos cuando no quepan en una sola línea */
+  margin-bottom: 5px;
+}
+
+ /* Estilos para el logo del header */
+.secheader img {
+  border-radius: 50%; /* Hacer la imagen circular */
+  height: 150px; /* Tamaño de la imagen */
+  width: auto; /* Ancho automático */
+  margin-bottom: 10px; /* Espacio entre la imagen y la lista */
+}
+
+ /* Estilos para la lista de navegación */
+.prinmenu {
+  list-style-type: none; /* Eliminar viñetas de la lista */
+  display: flex; /* Mostrar elementos en línea */
+  align-items: center; /* Alinear elementos verticalmente */
+  margin: 0; /* Eliminar el margen */
+  padding: 10; /*Margen interno*/
+}
+
+ /* Estilos para los elemento li del menu */
+.prinmenu li {
+  font-weight: bold; /* Texto en negrita */
+  margin: 0 10px; /* Espacio entre elementos */
+  transition: color 0.3s; /* Transición de color al pasar el mouse */
+}
+
+ /*Estilos para los enlaces del menu */
+.prinmenu li a {
+  color: #188013; /* Color de texto */
+  text-decoration: none; /* Quitar subrayado */
+}
+
+/* Estilos para los enlaces del submenú */
+.prinmenu li ul li a {
+  color: #188013; /* Color de texto */
+  text-decoration: none; /* Quitar subrayado */
+}
+
+/* Estilos para los submenús */
+.prinmenu li ul {
+  list-style-type: none; /* Quitar viñetas */
+}
+
+ /* Agregando efecto cuando se pasa el cursor sobre los enlaces del menu */
+.prinmenu li a:hover {
+  color: red; /* Cambiar color al pasar el mouse */
+}
+
+/*----- Estilos para el BODY -----*/
+body{
+  background: #aee7ee;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.formReg{
+  background: #78cdd7;
+  width: 45%; /* Ancho del formulario */
+  margin: auto; /* Centrar el formulario horizontalmente */
+}
+
+.registro {
+  display: flex; /* Usar flexbox para alinear etiquetas e inputs */
+  flex-direction: column; /* Alinear en columna */
+}
+
+.registro div{
+  margin-bottom: 15px;
+}
+
+.registro label {
+  display: inline-block;
+  width: 30%;
+  text-align: left; /* Alinear etiquetas a la izquierda */
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.registro input[type="text"],
+.registro input[type="password"] {
+  width: 60%;
+  margin: 10px 0;
+  margin-right: 20px; /* Alinear inputs a la derecha */
+  /*margin: 5px;*/
+}
+
+.registro input[type="submit"] {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  margin: auto;
+  margin-bottom: 25px;
+  margin-top: 25px; /* Separación entre el último input y el botón */
+  background: #143bda;
+  font-size: 25px;
+  width: 60%;
+  border-radius: 5px;
+}
+
+.registro input[type="submit"]:hover{
+  cursor: pointer;
+  background: #223dad;
+}
+
+.secbody {
+  text-align: center; /* Centrar el contenido horizontalmente */
+  position: relative; /* Posición relativa para el posicionamiento absoluto del texto */
+}
+
+/* Estilos para los mensajes de error */
+.error-message {
+  color: #F40E23; /* Color rojo para el texto */
+  font-weight: bold; /* Texto en negrita */
+  margin-bottom: 10px; /* Espacio debajo del mensaje */
+}
+
+.register-text {
+  margin: 20px auto;
+  text-align: center;
+}
+
+ /* Estilos para la imagen dentro de secbody */
+.secbody img {
+  display: block; /* Para que los márgenes automáticos funcionen */
+  width: 100%;
+  height: 500px;
+}
+
+ /* Estilos para el texto centrado en la imagen */
+.secbody .centrado {
+  position: absolute; /* Posición absoluta para colocar el texto */
+  font-size: 40px;
+  color: red;
+  font-weight: bold; /* Texto en negrita */
+  bottom: 10px; /* Alineación en la parte inferior */
+  left: 10px; /* Alineación a la izquierda */
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
+  padding: 10px; /* Espaciado interno */
+}
+
+/* Estilos para los mensajes de error */
+.error-message {
+  color: #F40E23; /* Color rojo para el texto */
+  font-weight: bold; /* Texto en negrita */
+  margin-bottom: 10px; /* Espacio debajo del mensaje */
+}
+
+ /* Estilos para el footer */
+footer section {
+  margin-top: 5px;
+  display: flex; /* Activar Flexbox */
+  justify-content: space-around; /* Distribuir el espacio entre los elementos */
+  align-items: center; /* Alinear los elementos verticalmente al centro */
+  width: 100%; /* Ocupar todo el ancho del footer */
+  height: 120px;
+  padding: 20px; /* Agregar espacio entre los elementos y el borde del footer */
+  background-color: #78cdd7;
+}
+
+footer section div {
+  display: flex; /* Activar Flexbox para cada elemento */
+  align-items: center; /* Alinear el contenido de cada elemento verticalmente al centro */
+}
+
+footer section img {
+  width: 70px; /* Reducir el ancho de las imágenes */
+  height: auto; /* Altura automática para mantener la proporción */
+  margin-right: 10px; /* Agregar espacio a la derecha de cada imagen */
+}
+
+h2 {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+ 
+ /* Estilos para el párrafo de registrate*/
+ .register-text {
+  margin: 20px auto;
+  text-align: center;
+}
+
+/*---ESTILOS PARA PAGINA DE CATEGORIAS.PHP---*/
+.categoria_container {
+  
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap into multiple lines */
+  justify-content: space-between; /* Distribute items evenly between lines and sides */
+  width: 100%; /* Make the container span the full width */
+}
+
+.imgCategoria{
+  opacity: 0.8;
+  border: 7px solid rgba(120, 205, 215, 0.8);
+  border-radius: 10px;
+}
+
+.imgCategoria:hover{
+  opacity: 1;
+  border: 3px solid rgba(254, 254, 254, 1);
+}
+
+.categoria {
+  position: relative;
+  width: calc(50% - 20px); /* Set width for each category, considering margins */
+  margin: 10px; /* Add spacing between categories */
+  text-align: center; /* Center the content within each category */
+}
+
+.categoria img {
+  width: 100%; /* Make images responsive to their container */
+  height: 400px; /* Maintain aspect ratio */
+  margin-bottom: 10px; /* Add spacing below each image */
+}
+
+.textoCentrado {
+  position:absolute;  
+    top: 50%;
+    left: 50%;
+    line-height: 1.5;
+    transform: translate(-50%, -50%);
+    /*background-color: rgba(255, 255, 255, 0.5);*/
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none; /* Quitar subrayado del enlace */
+    color: red; /* Color del texto */
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.textoCentrado:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Cambiar el color de fondo al pasar el ratón */
+  color: #F40E23;
+}
+
+/*---ESTILOS DE LA TABLA DE INVENTARIO---*/
+/* Estilos para la tabla */
+.materiales table {
+  margin: 0 auto; /* Centrar la tabla */
+  border-collapse: collapse;
+  margin-bottom: 25px;
+}
+
+.materiales th, .materiales td{
+  border: 1px solid #000;
+  padding: 8px; /* Espacio interior de las celdas */
+  text-align: center; /* Centrar el contenido de las celdas */
+}
+
+/*---ETILOS PARA EL FORMULARIO DE formInventario.php---*/
+/* Estilos para el formulario */
+.formulario {
+  width: 50%;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.h2inventario {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.formulario label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.formulario input[type="text"],
+.formulario input[type="number"],
+.formulario textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.formulario textarea {
+  height: 100px; /* Ajustar según necesidades */
+}
+
+.formulario input[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formulario input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.fminvRegresar {
+  display: block;
+  width: fit-content;
+  margin: 20px auto; /* Centrar y agregar separación del botón */
+  text-align: center;
+  color: #F40E23;
+  text-decoration: none;
+}
+
+.fminvRegresar:hover {
+  text-decoration: underline;
+}
+
+
+/* Estilos para el formulario de registro de productos */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none; /* quitar los estilos de selección predeterminados */
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/*---ESTILOS DE LA PÁGINACIÓN---*/
+.paginacion {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.paginacion ul {
+  list-style: none;
+  padding: 0;
+}
+
+.paginacion li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.paginacion a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+}
+
+.paginacion a:hover {
+  background-color: #eee;
+}
+
+.paginacion .pagina-actual {
+  font-weight: bold;
+  background-color: #ddd;
+}
+
+.paginacion .paginacion-anterior,
+.paginacion .paginacion-siguiente {
+  position: relative;
+}
+
+.paginacion .paginacion-anterior:before,
+.paginacion .paginacion-siguiente:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px;
+  border: 5px solid transparent;
+  border-top-style: solid;
+  border-top-color: #333;
+}
+
+.paginacion .paginacion-siguiente:before {
+  transform: rotate(180deg);
+}
