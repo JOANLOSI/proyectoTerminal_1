@@ -1,0 +1,110 @@
+.pinicio {
+   background-color: #78cdd7;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 10px;
+   flex-wrap: wrap;
+   margin-bottom: 5px;
+ }
+ 
+ .secheader img {
+   border-radius: 50%;
+   height: 150px;
+   width: auto;
+   margin-bottom: 10px;
+ }
+ 
+ .nav {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+ }
+ 
+ .nav-list {
+   list-style-type: none;
+   display: flex;
+   gap: 1rem;
+ }
+ 
+ .prinmenu {
+   list-style-type: none;
+   display: flex;
+   align-items: center;
+   margin: 0;
+   padding: 10;
+ }
+ 
+ .prinmenu li {
+   font-weight: bold;
+   margin: 0 10px;
+   transition: color 0.3s;
+ }
+ 
+ .prinmenu li ul {
+   list-style-type: none;
+ }
+ 
+ .prinmenu li a {
+   color: #04115a;
+   text-decoration: none;
+ }
+ 
+ .prinmenu li ul li a {
+   color: #188013;
+   text-decoration: none;
+ }
+ 
+ .prinmenu li a:hover {
+   color: red;
+ }
+ 
+ .secbody {
+   text-align: center;
+   position: relative;
+   margin: 0;
+ }
+ 
+ .secbody img {
+   width: 100%;
+   padding: 5px;
+ }
+ 
+ .secbody .centrado {
+   position: absolute;
+   font-size: 40px;
+   color: red;
+   font-weight: bold;
+   bottom: 10px;
+   left: 10px;
+   background-color: rgba(0, 0, 0, 0.4);
+   padding: 10px;
+ }
+ 
+ footer section {
+   margin-top: 5px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   width: 100%;
+   height: 120px;
+   padding: 20px;
+   background-color: #78cdd7;
+ }
+ 
+ footer section div {
+   display: flex;
+   align-items: center;
+   background: #aee7ee;
+ }
+ 
+ footer section img {
+   width: 70px;
+   height: auto;
+   margin-right: 10px;
+ }
+ 
+ body {
+   background: #aee7ee;
+ }

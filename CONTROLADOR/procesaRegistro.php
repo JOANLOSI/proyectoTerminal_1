@@ -139,16 +139,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Verificar si el usuario ya está registrado
 $usuario_existente = verificarUsuarioRegistrado($nombre, $contrasena);
 
-if ($usuario_existente) {
-    // Si el usuario ya existe, muestra un mensaje de error y no guarda el nuevo registro
+    if ($usuario_existente) {
+        // Si el usuario ya existe, muestra un mensaje de error y no guarda el nuevo registro
     header("Location: ../VISTA/registro.php?error=El usuario ya está registrado en la base de datos");
     exit();
 } else {
     // Si el usuario no existe, guarda el nuevo registro en la base de datos
-    
 
-// Encriptar la contraseña
-$contrasena_encriptada = password_hash($contrasena, PASSWORD_DEFAULT);
+
+    // Encriptar la contraseña
+    $contrasena_encriptada = password_hash($contrasena, PASSWORD_DEFAULT);
 
     guardarUsuario($usuario, $nombre, $apellido, $email, $contrasena_encriptada, $categoria);
 
@@ -157,6 +157,5 @@ $contrasena_encriptada = password_hash($contrasena, PASSWORD_DEFAULT);
 
     //Despues de guardar el registro se redirige al formulario del Login
     header("Location: ../VISTA/inicio.php");
-exit(); // Asegurarse de que el script se detenga después de la redirección
+    exit(); // Asegurarse de que el script se detenga después de la redirección
 }
-

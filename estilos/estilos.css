@@ -8,16 +8,35 @@
 
  /* Estilos para el header */
 header{
-  margin-bottom: 5px;
+  width: 100%;
+  margin-bottom: 0;
+  justify-content: space-between;
+}
+.abrir-menu{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+  font-size: 20px; /* Tamaño del icono */
+    padding: 5px; /* Ajustar el padding para aumentar el tamaño del botón */
+}
+.cerrar{
+  display: none;
 }
 h1{
   margin: 0 auto;
-  margin-top: 25px;
+  margin-top: 5px;
   margin-bottom: 5px;
   text-align: center;
 }
 
  /* Estilos para el header */
+ header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ }
 .pinicio {
   background-color: #78cdd7; /* Color de fondo */
   display: flex; /* Utilizar flexbox */
@@ -36,6 +55,18 @@ h1{
   width: auto; /* Ancho automático */
   margin-bottom: 10px; /* Espacio entre la imagen y la lista */
 }
+.nav {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.nav-list{
+  list-style-type: none;
+  display: flex;  
+  gap: 1rem;
+}
 
  /* Estilos para la lista de navegación */
 .prinmenu {
@@ -53,9 +84,14 @@ h1{
   transition: color 0.3s; /* Transición de color al pasar el mouse */
 }
 
+/* Estilos para los submenús */
+.prinmenu li ul {
+  list-style-type: none; /* Quitar viñetas */
+}
+
  /*Estilos para los enlaces del menu */
 .prinmenu li a {
-  color: #188013; /* Color de texto */
+  color: #04115a; /* Color de texto */
   text-decoration: none; /* Quitar subrayado */
 }
 
@@ -63,11 +99,6 @@ h1{
 .prinmenu li ul li a {
   color: #188013; /* Color de texto */
   text-decoration: none; /* Quitar subrayado */
-}
-
-/* Estilos para los submenús */
-.prinmenu li ul {
-  list-style-type: none; /* Quitar viñetas */
 }
 
  /* Agregando efecto cuando se pasa el cursor sobre los enlaces del menu */
@@ -134,8 +165,14 @@ body{
 }
 
 .secbody {
+  width: 1349px; /* Abarcar el 100% del ancho del contenedor */
   text-align: center; /* Centrar el contenido horizontalmente */
   position: relative; /* Posición relativa para el posicionamiento absoluto del texto */
+  margin: 0; /* Eliminar cualquier margen */
+}
+.secbody img{
+  width: 100%;
+  padding: 5px;
 }
 
 /* Estilos para los mensajes de error */
@@ -169,13 +206,6 @@ body{
   padding: 10px; /* Espaciado interno */
 }
 
-/* Estilos para los mensajes de error */
-.error-message {
-  color: #F40E23; /* Color rojo para el texto */
-  font-weight: bold; /* Texto en negrita */
-  margin-bottom: 10px; /* Espacio debajo del mensaje */
-}
-
  /* Estilos para el footer */
 footer section {
   margin-top: 5px;
@@ -191,6 +221,7 @@ footer section {
 footer section div {
   display: flex; /* Activar Flexbox para cada elemento */
   align-items: center; /* Alinear el contenido de cada elemento verticalmente al centro */
+  background: #aee7ee;
 }
 
 footer section img {
@@ -446,4 +477,83 @@ button[type="submit"]:hover {
 
 .paginacion .paginacion-siguiente:before {
   transform: rotate(180deg);
+}
+
+
+/* Estilos para pantalla pequeña (smartphone) */
+@media screen and (max-width: 900px) {
+  .abrir-menu, .cerrar{
+display: block;
+font-size: 18px; /* Tamaño del icono */
+color: #d30dea; /* Color del icono */
+cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+  }
+  
+  .nav{
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    font-size: 10px;
+    background: #aee7ee;
+    width: 200px; /* Ancho del menú */
+    height: 60%; /* Altura del menú */
+    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+  }
+
+  .nav.visible{
+    opacity: 1;
+    visibility: visible;
+  }
+  .nav-list{
+    flex-direction: column;
+    align-items: end;
+  }
+  /* Estilos para los enlaces del menú en dispositivos móviles */
+  .prinmenu li a {
+    color: #d30dea; /* Color del texto del menú */
+    text-decoration: none; /* Quitar subrayado */
+  }
+  .secheader img {
+    height: 100px; /* Reducir el tamaño de la imagen en pantallas pequeñas */
+  }
+
+  .secbody{
+    margin-bottom: 140px;
+    width: auto;
+  }
+  .secbody .centrado{
+    font-size: 20px;
+    margin-top: 5px;
+  }
+  footer{
+    margin-top: 5px;
+  }
+  footer section {
+    margin-top: 5px;
+    display: flex; /* Activar Flexbox */
+    flex-direction: column; /* Apilar elementos verticalmente */
+    justify-content: center; /* Centrar verticalmente los elementos */
+    align-items: center; /* Centrar horizontalmente los elementos */
+    width: 100%; /* Ocupar todo el ancho del footer */
+    height: 100px;
+    padding: 20px; /* Agregar espacio entre los elementos y el borde del footer */
+    background-color: #78cdd7;
+  }
+  
+  footer section div {
+    margin-bottom: 10px; /* Espacio entre elementos */
+  }
+  
+  footer section img {
+    width: 70px; /* Reducir el ancho de las imágenes */
+    height: auto; /* Altura automática para mantener la proporción */
+    margin-bottom: 5px; /* Espacio entre imágenes */
+  }
 }

@@ -25,12 +25,16 @@ if (isset($_GET['exito']) && $_GET['exito'] == 'true') {
     <title>Registro de Producto</title>
     <link rel="stylesheet" href="../estilos/normalize.css">
     <link rel="stylesheet" href="../estilos/estilos.css">
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 
-<?php
-include'header.php';
-?>
+<?php include 'header.php'; ?>
+
 <?php
 // Verificar si existe el parámetro en la URL indicando que se ha registrado el producto con éxito
 if (isset($_GET['exito']) && $_GET['exito'] == 'true') {
@@ -38,47 +42,50 @@ if (isset($_GET['exito']) && $_GET['exito'] == 'true') {
 }
 ?>
 
-    <h1>Registro de Producto</h1>
+<h1>Registro de Producto</h1>
 
-    <form action="../CONTROLADOR/procesaRegistroProducto.php" method="post" id="formProducto">
-        <label for="categoria">Categoría:</label>
-        <select id="categoria" name="categoria" required>
-            <option value="Endodoncia">Endodoncia</option>
-            <option value="Ortodoncia">Ortodoncia</option>
-            <option value="Instrumental">Instrumental</option>
-            <option value="Equipo">Equipo</option>
-            <option value="Otros">Otros</option>
-        </select>
+<form action="../CONTROLADOR/procesaRegistroProducto.php" method="post" id="formProducto">
+    <label for="categoria">Categoría:</label>
+    <select id="categoria" name="categoria" required>
+        <option value="">Selecciona una categoría</option>
+        <option value="Endodoncia">Endodoncia</option>
+        <option value="Ortodoncia">Ortodoncia</option>
+        <option value="Instrumental">Instrumental</option>
+        <option value="Equipo">Equipo</option>
+        <option value="Otros">Otros</option>
+    </select>
+    <span class="error"><?php echo $errores['categoria'] ?? ''; ?></span>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    <span class="error"><?php echo $errores['nombre'] ?? ''; ?></span>
 
-        <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
+    <span class="error"><?php echo $errores['descripcion'] ?? ''; ?></span>
 
-        <label for="stockMinimo">Stock Mínimo:</label>
-        <input type="number" id="stockMinimo" name="stockMinimo" min="1" required>
+    <label for="stockMinimo">Stock Mínimo:</label>
+    <input type="number" id="stockMinimo" name="stockMinimo" min="1" required>
+    <span class="error"><?php echo $errores['stockMinimo'] ?? ''; ?></span>
 
-        <label for="cantidadStock">Cantidad en Stock:</label>
-        <input type="number" id="cantidadStock" name="cantidadStock" min="1" required>
+    <label for="cantidadStock">Cantidad en Stock:</label>
+    <input type="number" id="cantidadStock" name="cantidadStock" min="1" required>
+    <span class="error"><?php echo $errores['cantidadStock'] ?? ''; ?></span>
 
-        <button type="submit">Registrar Producto</button>
-    </form>
+    <button type="submit">Registrar Producto</button>
+</form>
 
-    <script>
-    // Función para ocultar el mensaje de éxito después de 4 segundos
-    setTimeout(function() {
-        var mensajeExito = document.getElementById('mensaje-exito');
-        if (mensajeExito) {
-            mensajeExito.style.display = 'none';
-        }
-    }, 4000);
+<script>
+// Función para ocultar el mensaje de éxito después de 4 segundos
+setTimeout(function() {
+    var mensajeExito = document.getElementById('mensaje-exito');
+    if (mensajeExito) {
+        mensajeExito.style.display = 'none';
+    }
+}, 4000);
 </script>
 
-    <script src="../js/validaciones.js"></script>
+<script src="../js/validaciones.js"></script>
 </body>
-<?php
-include 'footer.php';
-?>
+<?php include 'footer.php'; ?>
 </html>
-

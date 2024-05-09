@@ -60,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = verificarUsuarioRegistrado($nombre, $contrasena); // Almacenar el resultado en $usuario
         if ($usuario) { // Verificar si la función devuelve un resultado
             echo "¡Bienvenido, $nombre! Ingresaste como {$usuario['categoria']}";
+            header ("Location: ../VISTA/inventario.php");
         } else {
             header("Location: ../VISTA/inicio.php?error=Los datos proporcionados no están registrados, verifica la información");
             echo "<script>
