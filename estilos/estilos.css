@@ -221,7 +221,7 @@ footer section {
 footer section div {
   display: flex; /* Activar Flexbox para cada elemento */
   align-items: center; /* Alinear el contenido de cada elemento verticalmente al centro */
-  background: #aee7ee;
+  background: #78cdd7;
 }
 
 footer section img {
@@ -557,3 +557,39 @@ cursor: pointer; /* Cambiar el cursor al pasar el mouse */
     margin-bottom: 5px; /* Espacio entre imágenes */
   }
 }
+
+
+/* Estilos para la tabla de productos */
+.tabla_productos {
+  width: 80%; /* Ancho de la tabla */
+  border-collapse: collapse; /* Colapsar los bordes de la tabla */
+  margin-top: 20px; /* Espacio superior */
+  }
+  
+  .tabla_productos th,
+  .tabla_productos td {
+    border: 1px solid #ddd !important; /* Añadir borde a las celdas */
+    padding: 8px; /* Espaciado interno */
+  }
+  
+  .tabla_productos th {
+    background-color: #f2f2f2; /* Color de fondo para las celdas de encabezado */
+    text-align: left; /* Alinear texto a la izquierda */
+  }
+  
+  /* Estilos para los bordes de la tabla */
+  .tabla_productos th,
+  .tabla_productos td {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .tabla_productos th:first-child,
+  .tabla_productos td:first-child {
+    border-left: 1px solid #ddd;
+  }
+  
+  .tabla_productos th:last-child,
+  .tabla_productos td:last-child {
+    border-right: 1px solid #ddd;
+  }

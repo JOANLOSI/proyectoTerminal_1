@@ -1,31 +1,9 @@
 <?php
-include '../MODELO/conexion.php';
+include '../CONTROLADOR/procesaEndodoncia.php'; 
 
-// Definir la cantidad de registros por página
-$registrosPorPagina = 5;
+$controladorEndodoncia = new ProcesaEndodoncia();
 
-// Si se recibe el parámetro "pagina", se utiliza para el número de página actual
-if (isset($_GET['pagina'])) {
-   $paginaActual = $_GET['pagina'];
-} else {
-   $paginaActual = 1; // Página inicial por defecto
-}
-
-// Calcular el offset para la consulta SQL
-$offset = ($paginaActual - 1) * $registrosPorPagina;
-
-// Realizar la consulta a la base de datos con LIMIT y OFFSET y filtrar por la clase "endodoncia"
-$sql = "SELECT * FROM productos WHERE categoria = 'endodoncia' LIMIT $registrosPorPagina OFFSET $offset";
-$resultado = $conexion->query($sql);
-
-// Obtener el número total de registros filtrados por la clase "endodoncia"
-$sqlTotal = "SELECT COUNT(*) AS total FROM productos WHERE categoria = 'endodoncia'";
-$resultadoTotal = $conexion->query($sqlTotal);
-$rowTotal = $resultadoTotal->fetch(PDO::FETCH_ASSOC);
-$totalRegistros = $rowTotal['total'];
-
-// Calcular el número total de páginas
-$totalPaginas = ceil($totalRegistros / $registrosPorPagina);
+$resultado = $controladorEndodoncia->getProductosEndodoncia();
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +21,7 @@ $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
    <?php include 'header.php'; ?>
 
    <div class="materiales">
-      <h2 class="h2inventario">INVENTARIO</h2>
+      <h2 class="h2inventario">INVENTARIO DE ENDODONCIA</h2>
       <table class="tabla-inventario">
          <thead>
             <tr>
@@ -59,8 +37,8 @@ $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 
          <tbody>
             <?php
-            if ($resultado->rowCount() > 0) {
-               while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
+            if (isset($resultado)) {
+               foreach ($resultado as $row) {
                   echo "<tr>";
                   echo "<td>" . htmlspecialchars($row["IDProducto"]) . "</td>";
                   echo "<td>" . htmlspecialchars($row["Nombre"]) . "</td>";
@@ -69,9 +47,8 @@ $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
                   echo "<td>" . htmlspecialchars($row["StockMinimo"]) . "</td>";
                   echo "<td>" . htmlspecialchars($row["CantidadStock"]) . "</td>";
                   echo "<td>";
-                  echo "<a href='
-                  .php?id=" . htmlspecialchars($row['IDProducto']) . "&redirect=endodoncia.php' class='enlace-editar'>Editar</a> | ";
-                  echo "<a href='../CONTROLADOR/borraInventario.php?id=" . htmlspecialchars($row['IDProducto']) . "' class='enlace-eliminar' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este registro?\")'>Eliminar</a>";
+                  echo "<a href='editarEndodoncia.php?id=" . htmlspecialchars($row['IDProducto']) . "&redirect=endodoncia.php' class='enlace-editar'>Editar</a> | ";
+                  echo "<a href='../CONTROLADOR/borraEndodoncia.php?id=" . htmlspecialchars($row['IDProducto']) . "' class='enlace-eliminar' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este registro?\")'>Eliminar</a>";
                   echo "</td>";
                   echo "</tr>";
                }
@@ -81,28 +58,6 @@ $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
             ?>
          </tbody>
       </table>
-
-      <div class="paginacion">
-         <ul>
-            <?php
-            if ($paginaActual > 1) {
-               echo "<li><a href='?pagina=" . ($paginaActual - 1) . "'>Anterior</a></li>";
-            }
-
-            for ($i = 1; $i <= $totalPaginas; $i++) {
-               if ($i == $paginaActual) {
-                  echo "<li class='pagina-actual'>$i</li>";
-               } else {
-                  echo "<li><a href='?pagina=$i'>$i</a></li>";
-               }
-            }
-
-            if ($paginaActual < $totalPaginas) {
-               echo "<li><a href='?pagina=" . ($paginaActual + 1) . "'>Siguiente</a></li>";
-            }
-            ?>
-         </ul>
-      </div>
    </div>
 
    <?php include 'footer.php'; ?>

@@ -11,64 +11,64 @@
 
 <body>
 
-      <?php
-      include 'header.php';
-      ?>
+   <?php
+   include 'header.php';
+   ?>
 
-      <h1 class="h_categoria">CATEGORIA DE ARTÍCULOS</h1>
+   <h1 class="h_categoria">CATEGORIA DE ARTÍCULOS</h1>
 
-      <div class="categoria_container">
-         <div class="categoria">
-            <a href="#endodoncia.php">
+   <div class="categoria_container">
+      <div class="categoria">
+         <a href="#endodoncia.php">
             <img class="imgCategoria" src="../img/img_categorias/Endodoncia_ozkan-guner-1nJzcrGGktY-unsplash.jpg" alt="Endodoncia">
             <a href="endodoncia.php" class="textoCentrado">ENDODONCIA</a>
-            </a>
-         </div>
-
-         <div class="categoria">
-            <a href="">
-            <img class="imgCategoria" src="../img/img_categorias/ortodoncia_diana-polekhina-fmB7IdFjhTM-unsplash.jpg" alt="Ortodoncia">
-            <a href="ortodoncia.php" class="textoCentrado">ORTODONCIA</a>
-            </a>
-         </div>
-
-         <div class="categoria">
-            <a href="">
-            <img class="imgCategoria" src="../img/img_categorias/instrumental_caroline-lm-1lbvRjeF2JE-unsplash.jpg" alt="Instrumental">
-            <a href="instrumental.php" class="textoCentrado">INSTRUMENTAL</a>
-            </a>
-         </div>
-
-         <div class="categoria">
-            <a href="">
-            <img class="imgCategoria" src="../img/img_categorias/equipo_engin-akyurt-WQ5fGfFHGZ0-unsplash.jpg" alt="Equipos">
-            <a href="equipos.php" class="textoCentrado">EQUIPOS</a>
-            </a>
-         </div>
-
-         <div class="categoria">
-            <a href="">
-            <img class="imgCategoria" src="../img/img_categorias/otros_material_the-humble-co-cADflhZzgyo-unsplash.jpg" alt="Otros, Diversos">
-            <a href="diversos.php" class="textoCentrado">DIVERSOS</a>
-            </a>
-         </div>
+         </a>
       </div>
 
-      <!--MENU INFERIOR-->
-      <button class="abrir-menuInferior" id="abrir"><i class="fa-solid fa-bars"></i></button>
-        <nav class="nav" id="nav">
-            
-        <button class="cerrar" id="cerrar"><i class="fas fa-times"></i></button>
-            <ul class="nav-list prinmenu">
-                <li><a href="endodoncia.php">ENDODONCIA</a></li>
-                <li><a href="ortodoncia.php">ORTODONCIA</a></li>
-                <li><a href="instrumental.php">INSTRUMENTAL</a></li>
-                <li><a href="equipos.php">EQUIPOS</a></li>
-                <li><a href="diversos.php">DIVERSOS</a></li>
-            </ul>
-        </nav>
+      <div class="categoria">
+         <a href="">
+            <img class="imgCategoria" src="../img/img_categorias/ortodoncia_diana-polekhina-fmB7IdFjhTM-unsplash.jpg" alt="Ortodoncia">
+            <a href="ortodoncia.php" class="textoCentrado">ORTODONCIA</a>
+         </a>
+      </div>
 
+      <div class="categoria">
+         <a href="">
+            <img class="imgCategoria" src="../img/img_categorias/instrumental_caroline-lm-1lbvRjeF2JE-unsplash.jpg" alt="Instrumental">
+            <a href="instrumental.php" class="textoCentrado">INSTRUMENTAL</a>
+         </a>
+      </div>
 
-      <?php
-      include 'footer.php';
-      ?>
+      <div class="categoria">
+         <a href="">
+            <img class="imgCategoria" src="../img/img_categorias/equipo_engin-akyurt-WQ5fGfFHGZ0-unsplash.jpg" alt="Equipos">
+            <a href="equipos.php" class="textoCentrado">EQUIPOS</a>
+         </a>
+      </div>
+
+      <div class="categoria">
+         <a href="">
+            <img class="imgCategoria" src="../img/img_categorias/otros_material_the-humble-co-cADflhZzgyo-unsplash.jpg" alt="Otros, Diversos">
+            <a href="diversos.php" class="textoCentrado">DIVERSOS</a>
+         </a>
+      </div>
+   </div>
+
+   <!--MENU INFERIOR-->
+   <button class="abrir-menuInferior" id="abrir"><i class="fa-solid fa-bars"></i></button>
+   <nav class="nav" id="nav">
+
+      <button class="cerrar" id="cerrar"><i class="fas fa-times"></i></button>
+      <ul class="nav-list prinmenu">
+         <li><a href="endodoncia.php">ENDODONCIA</a></li>
+         <li><a href="ortodoncia.php">ORTODONCIA</a></li>
+         <li><a href="instrumental.php">INSTRUMENTAL</a></li>
+         <li><a href="equipos.php">EQUIPOS</a></li>
+         <li><a href="diversos.php">DIVERSOS</a></li>
+      </ul>
+   </nav>
+
+   <?php
+   include 'footer.php';
+   ?>
+   

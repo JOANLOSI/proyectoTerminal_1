@@ -1,22 +1,40 @@
 <?php
-include 'conexion.php';
 
-function obtenerProductosEndodoncia($registrosPorPagina, $offset) {
-    global $conexion;
-    $sql = "SELECT * FROM productos WHERE categoria = 'endodoncia' LIMIT :limite OFFSET :offset";
-    $statement = $conexion->prepare($sql);
-    $statement->bindParam(':limite', $registrosPorPagina, PDO::PARAM_INT);
-    $statement->bindParam(':offset', $offset, PDO::PARAM_INT);
-    $statement->execute();
-    return $statement->fetchAll(PDO::FETCH_ASSOC);
+include_once 'conexion.php';
+
+class ModEndodoncia {
+    private $conexion;
+
+    public function __construct($conexion) {
+        $this->conexion = $conexion;
+    }
+
+    public function getProductosEndodoncia() {
+        $consulta = "SELECT * FROM productos WHERE categoria = 'endodoncia'";
+        $sentencia = $this->conexion->prepare($consulta);
+        $sentencia->execute();
+        return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getProductoPorId($idProducto) {
+        $consulta = "SELECT * FROM productos WHERE IDProducto = :idProducto";
+        $sentencia = $this->conexion->prepare($consulta);
+        $sentencia->bindParam(':idProducto', $idProducto, PDO::PARAM_INT);
+        $sentencia->execute();
+        return $sentencia->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function actualizarProducto($idProducto, $nombre, $categoria, $descripcion, $stockMinimo, $cantidadStock) {
+        $consulta = "UPDATE productos SET Nombre = :nombre, categoria = :categoria, Descripcion = :descripcion, StockMinimo = :stockMinimo, CantidadStock = :cantidadStock WHERE IDProducto = :idProducto";
+        $sentencia = $this->conexion->prepare($consulta);
+        $sentencia->bindParam(':idProducto', $idProducto, PDO::PARAM_INT);
+        $sentencia->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $sentencia->bindParam(':categoria', $categoria, PDO::PARAM_STR);
+        $sentencia->bindParam(':descripcion', $descripcion, PDO::PARAM_STR);
+        $sentencia->bindParam(':stockMinimo', $stockMinimo, PDO::PARAM_INT);
+        $sentencia->bindParam(':cantidadStock', $cantidadStock, PDO::PARAM_INT);
+        return $sentencia->execute();
+    }
 }
 
-function contarProductosEndodoncia() {
-    global $conexion;
-    $sqlTotal = "SELECT COUNT(*) AS total FROM productos WHERE categoria = 'endodoncia'";
-    $statement = $conexion->prepare($sqlTotal);
-    $statement->execute();
-    $rowTotal = $statement->fetch(PDO::FETCH_ASSOC);
-    return $rowTotal['total'];
-}
 ?>

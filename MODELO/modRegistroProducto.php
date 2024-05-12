@@ -43,12 +43,14 @@ function validarCategoria($categoria) {
 function validarNombre($nombre) {
     // Validar el nombre
     // Por ejemplo, solo permitir letras, números, espacios y algunos caracteres especiales
+    $nombre = ucwords(strtolower($nombre));
     return preg_match('/^[a-zA-Z0-9\sáéíóúÁÉÍÓÚ.,\-()]+$/', $nombre) ? htmlspecialchars(trim($nombre)) : '';
 }
 
 function validarDescripcion($descripcion) {
     // Validar la descripción
     // Por ejemplo, permitir letras, números, espacios y algunos caracteres especiales
+    $descripcion = ucfirst(strtolower($descripcion));
     return htmlspecialchars(trim($descripcion));
 }
 

@@ -52,7 +52,7 @@ if (isset($_GET['exito']) && $_GET['exito'] == 'true') {
         <option value="Ortodoncia">Ortodoncia</option>
         <option value="Instrumental">Instrumental</option>
         <option value="Equipo">Equipo</option>
-        <option value="Otros">Otros</option>
+        <option value="Diversos">Diversos</option>
     </select>
     <span class="error"><?php echo $errores['categoria'] ?? ''; ?></span>
 
