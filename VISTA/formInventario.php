@@ -48,7 +48,16 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <label for="nombre">Nombre:</label><br>
             <input type="text" id="nombre" name="nombre" value="<?php echo $producto['Nombre']; ?>"><br>
             <label for="categoria">Categoría:</label><br>
-            <input type="text" id="categoria" name="categoria" value="<?php echo $producto['categoria']; ?>"><br>
+            <select id="categoria" name="categoria" required>
+                <option value="">Selecciona una categoría</option>
+                <option value="Endodoncia" <?php if ($producto['categoria'] == 'Endodoncia') echo 'selected'; ?>>Endodoncia</option>
+                <option value="Ortodoncia" <?php if ($producto['categoria'] == 'Ortodoncia') echo 'selected'; ?>>Ortodoncia</option>
+                <option value="Instrumental" <?php if ($producto['categoria'] == 'Instrumental') echo 'selected'; ?>>Instrumental</option>
+                <option value="Equipo" <?php if ($producto['categoria'] == 'Equipo') echo 'selected'; ?>>Equipo</option>
+                <option value="Diversos" <?php if ($producto['categoria'] == 'Diversos') echo 'selected'; ?>>Diversos</option>
+            </select>
+            <span class="error"><?php echo $errores['categoria'] ?? ''; ?></span><br>
+
             <label for="descripcion">Descripción:</label><br>
             <textarea id="descripcion" name="descripcion"><?php echo $producto['Descripcion']; ?></textarea><br>
             <label for="stock_minimo">Stock Mínimo:</label><br>
@@ -57,7 +66,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <input type="number" id="existencia" name="existencia" value="<?php echo $producto['CantidadStock']; ?>"><br><br>
             <input type="submit" value="Actualizar">
         </form>
-        
+
         <a href="inventario.php" class="fminvRegresar">REGRESAR</a>
     </div>
 

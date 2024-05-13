@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="../estilos/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="/website/css/uicons-solid-rounded.css">
     <link rel="stylesheet" type="text/css" href="../estilos/estilos.css">
     <link rel="shorcurt icon" type="image/x-icon" href="../img/favicon.ico">
     <title>INICIO</title>

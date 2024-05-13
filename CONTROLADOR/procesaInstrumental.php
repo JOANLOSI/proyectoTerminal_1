@@ -27,9 +27,9 @@ class ProcesaInstrumental
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    // Obtener los datos del formulario
    $idProducto = $_POST['idProducto'];
-   $nombre = $_POST['nombre'];
+   $nombre = ucwords(strtolower($_POST['nombre'])); // Convertir la primera letra de cada palabra a mayúscula
    $categoria = $_POST['categoria'];
-   $descripcion = $_POST['descripcion'];
+   $descripcion = ucfirst(strtolower($_POST['descripcion'])); // Convertir solo la primera letra de la primera palabra a mayúscula
    $stockMinimo = $_POST['stockMinimo'];
    $cantidadStock = $_POST['cantidadStock'];
    echo "nombre";
