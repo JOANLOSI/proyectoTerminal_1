@@ -1,19 +1,23 @@
 <?php
+// Sanitizar los valores obtenidos de $_GET
+$getExito = isset($_GET['exito']) ? ($_GET['exito'] == 'true' ? true : false) : false;
+// Inicializar variables
+$categoria = $nombre = $descripcion = $stockMinimo = $cantidadStock = '';
 // Verificar si hay parámetros en la URL indicando que es una redirección después de guardar
 if (isset($_GET['exito']) && $_GET['exito'] == 'true') {
-    // Establecer los valores de los campos en blanco
-    $categoria = '';
-    $nombre = '';
-    $descripcion = '';
-    $stockMinimo = '';
-    $cantidadStock = '';
+    // Si es una redirección después de guardar, establecer los valores en blanco
+    $categoria = $nombre = $descripcion = $stockMinimo = $cantidadStock = '';
 } else {
-    // Obtener los valores normales de los campos (puedes manejar esto según tus necesidades)
-    $categoria = $_POST['categoria'] ?? '';
-    $nombre = $_POST['nombre'] ?? '';
-    $descripcion = $_POST['descripcion'] ?? '';
-    $stockMinimo = $_POST['stockMinimo'] ?? '';
-    $cantidadStock = $_POST['cantidadStock'] ?? '';
+    // Obtener los valores normales de los campos y sanitizarlos si es necesario
+    $categoria = isset($_POST['categoria']) ? $_POST['categoria'] : '';
+    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
+    $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
+    $stockMinimo = isset($_POST['stockMinimo']) ? $_POST['stockMinimo'] : '';
+    $cantidadStock = isset($_POST['cantidadStock']) ? $_POST['cantidadStock'] : '';
+// Aplicar sanitización si es necesario
+$categoria = htmlspecialchars($categoria);
+$nombre = htmlspecialchars($nombre);
+$descripcion = htmlspecialchars($descripcion);
 }
 ?>
 
@@ -26,11 +30,12 @@ if (isset($_GET['exito']) && $_GET['exito'] == 'true') {
     <link rel="stylesheet" href="../estilos/normalize.css">
     <link rel="stylesheet" href="../estilos/estilos.css">
     <style>
-        .error {
+    .error {
             color: red;
         }
     </style>
 </head>
+
 <body>
 
 <?php include 'header.php'; ?>
@@ -44,8 +49,8 @@ if (isset($_GET['exito']) && $_GET['exito'] == 'true') {
 
 <h1>Registro de Producto</h1>
 
-<form action="../CONTROLADOR/procesaRegistroProducto.php" method="post" id="formProducto">
-    <label for="categoria">Categoría:</label>
+<form action="../CONTROLADOR/procesaRegistroProducto.php" method="post" id="formProducto" class="formRegProd">
+    <label for="categoria">CATEGORÍA:</label>
     <select id="categoria" name="categoria" required>
         <option value="">Selecciona una categoría</option>
         <option value="Endodoncia">Endodoncia</option>
@@ -56,23 +61,23 @@ if (isset($_GET['exito']) && $_GET['exito'] == 'true') {
     </select>
     <span class="error"><?php echo $errores['categoria'] ?? ''; ?></span>
 
-    <label for="nombre">Nombre:</label>
+    <label for="nombre">NOMBRE:</label>
     <input type="text" id="nombre" name="nombre" required>
     <span class="error"><?php echo $errores['nombre'] ?? ''; ?></span>
 
-    <label for="descripcion">Descripción:</label>
+    <label for="descripcion">DESCRIPCIÓN:</label>
     <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
     <span class="error"><?php echo $errores['descripcion'] ?? ''; ?></span>
 
-    <label for="stockMinimo">Stock Mínimo:</label>
+    <label for="stockMinimo">STOCK MINÍMO:</label>
     <input type="number" id="stockMinimo" name="stockMinimo" min="1" required>
     <span class="error"><?php echo $errores['stockMinimo'] ?? ''; ?></span>
 
-    <label for="cantidadStock">Cantidad en Stock:</label>
+    <label for="cantidadStock">CANTIDAD EN STOCK:</label>
     <input type="number" id="cantidadStock" name="cantidadStock" min="1" required>
     <span class="error"><?php echo $errores['cantidadStock'] ?? ''; ?></span>
 
-    <button type="submit">Registrar Producto</button>
+    <button type="submit">REGISTRAR PRODUCTO</button>
 </form>
 
 <script>

@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $descripcion = ucfirst(strtolower($_POST['descripcion'])); // Convertir solo la primera letra de la primera palabra a mayúscula
    $stockMinimo = $_POST['stockMinimo'];
    $cantidadStock = $_POST['cantidadStock'];
-   echo "nombre";
+   //echo "nombre";
 
    // Crear una instancia de ProcesaOrtodoncia
    $procesaOrtodoncia = new ProcesaOrtodoncia();

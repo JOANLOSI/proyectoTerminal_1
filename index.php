@@ -37,10 +37,10 @@
                     </ul>
                 </li>
                 <li><a href="#">VENTAS</a></li>
-                <li><a href="#">GALERIA FOTOGRAFICA</a></li>
+                <li><a href="VISTA/galeria.php">GALERIA FOTOGRAFICA</a></li>
                 <li><a href="#">PROVEEDORES</a></li>
                 <li><a href="#">NOSOTROS</a></li>
-                <li><a href="vista/inicio.php">COMENZAR</a></li>
+                <li><a href="VISTA/inicio.php">COMENZAR</a></li>
                 <li><a href="salir.php">SALIR</a></li>
             </ul>
         </nav>
@@ -93,3 +93,4 @@
 </body>
 
 </html>
+

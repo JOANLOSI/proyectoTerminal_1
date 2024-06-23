@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -6,37 +6,32 @@
   box-sizing: border-box;
 }
 
- /* Estilos para el header */
-header{
+/* Estilos para el header */
+header {
   width: 100%;
-  margin-bottom: 0;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  margin-bottom: 0;
 }
-.abrir-menu{
+.abrir-menu {
   position: absolute;
   top: 10px;
   right: 10px;
   display: none;
   font-size: 20px; /* Tamaño del icono */
-    padding: 5px; /* Ajustar el padding para aumentar el tamaño del botón */
+  padding: 5px; /* Ajustar el padding para aumentar el tamaño del botón */
 }
-.cerrar{
+.cerrar {
   display: none;
 }
-h1{
+h1 {
   margin: 0 auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   text-align: center;
+  color: #333;
 }
-
- /* Estilos para el header */
- header{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
- }
 .pinicio {
   background-color: #78cdd7; /* Color de fondo */
   display: flex; /* Utilizar flexbox */
@@ -48,7 +43,7 @@ h1{
   margin-bottom: 5px;
 }
 
- /* Estilos para el logo del header */
+/* Estilos para el logo del header */
 .secheader img {
   border-radius: 50%; /* Hacer la imagen circular */
   height: 150px; /* Tamaño de la imagen */
@@ -62,13 +57,13 @@ h1{
   flex-direction: row;
   align-items: center;
 }
-.nav-list{
+.nav-list {
   list-style-type: none;
-  display: flex;  
+  display: flex;
   gap: 1rem;
 }
 
- /* Estilos para la lista de navegación */
+/* Estilos para la lista de navegación */
 .prinmenu {
   list-style-type: none; /* Eliminar viñetas de la lista */
   display: flex; /* Mostrar elementos en línea */
@@ -77,7 +72,7 @@ h1{
   padding: 10; /*Margen interno*/
 }
 
- /* Estilos para los elemento li del menu */
+/* Estilos para los elemento li del menu */
 .prinmenu li {
   font-weight: bold; /* Texto en negrita */
   margin: 0 10px; /* Espacio entre elementos */
@@ -88,42 +83,45 @@ h1{
 .prinmenu li ul {
   list-style-type: none; /* Quitar viñetas */
 }
-
- /*Estilos para los enlaces del menu */
+#menu .inventario-menu:hover #inventario-submenu {
+  display: block;
+}
+.submenu.visible {
+  display: block;
+}
+/*Estilos para los enlaces del menu */
 .prinmenu li a {
   color: #04115a; /* Color de texto */
   text-decoration: none; /* Quitar subrayado */
 }
 
-/* Estilos para los enlaces del submenú */
-.prinmenu li ul li a {
-  color: #188013; /* Color de texto */
-  text-decoration: none; /* Quitar subrayado */
-}
-
- /* Agregando efecto cuando se pasa el cursor sobre los enlaces del menu */
+/* Agregando efecto cuando se pasa el cursor sobre los enlaces del menu */
 .prinmenu li a:hover {
   color: red; /* Cambiar color al pasar el mouse */
 }
 
 /*----- Estilos para el BODY -----*/
-body{
+body {
   background: #aee7ee;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.formReg{
+.formReg {
   background: #78cdd7;
   width: 45%; /* Ancho del formulario */
   margin: auto; /* Centrar el formulario horizontalmente */
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .registro {
   display: flex; /* Usar flexbox para alinear etiquetas e inputs */
   flex-direction: column; /* Alinear en columna */
+  padding: 15px;
 }
 
-.registro div{
+.registro div {
   margin-bottom: 15px;
 }
 
@@ -153,15 +151,15 @@ body{
   margin: auto;
   margin-bottom: 25px;
   margin-top: 25px; /* Separación entre el último input y el botón */
-  background: #143bda;
+  background: #007bff;
   font-size: 25px;
   width: 60%;
   border-radius: 5px;
 }
 
-.registro input[type="submit"]:hover{
+.registro input[type="submit"]:hover {
   cursor: pointer;
-  background: #223dad;
+  background: #0056b3;
 }
 
 .secbody {
@@ -170,14 +168,14 @@ body{
   position: relative; /* Posición relativa para el posicionamiento absoluto del texto */
   margin: 0; /* Eliminar cualquier margen */
 }
-.secbody img{
+.secbody img {
   width: 100%;
   padding: 5px;
 }
 
 /* Estilos para los mensajes de error */
 .error-message {
-  color: #F40E23; /* Color rojo para el texto */
+  color: #f40e23; /* Color rojo para el texto */
   font-weight: bold; /* Texto en negrita */
   margin-bottom: 10px; /* Espacio debajo del mensaje */
 }
@@ -186,15 +184,23 @@ body{
   margin: 20px auto;
   text-align: center;
 }
+.register-text a {
+  text-decoration: none;
+  color: #04515a;
+}
+.register-text a:hover {
+  text-decoration: underline;
+  color: #188013;
+}
 
- /* Estilos para la imagen dentro de secbody */
+/* Estilos para la imagen dentro de secbody */
 .secbody img {
   display: block; /* Para que los márgenes automáticos funcionen */
   width: 100%;
   height: 500px;
 }
 
- /* Estilos para el texto centrado en la imagen */
+/* Estilos para el texto centrado en la imagen */
 .secbody .centrado {
   position: absolute; /* Posición absoluta para colocar el texto */
   font-size: 40px;
@@ -206,9 +212,9 @@ body{
   padding: 10px; /* Espaciado interno */
 }
 
- /* Estilos para el footer */
+/* Estilos para el footer */
 footer section {
-  margin-top: 5px;
+  margin-top: 15px;
   display: flex; /* Activar Flexbox */
   justify-content: space-around; /* Distribuir el espacio entre los elementos */
   align-items: center; /* Alinear los elementos verticalmente al centro */
@@ -234,36 +240,37 @@ h2 {
   margin-top: 5px;
   margin-bottom: 25px;
 }
- 
- /* Estilos para el párrafo de registrate*/
- .register-text {
+
+/* Estilos para el párrafo de registrate*/
+.register-text {
   margin: 20px auto;
   text-align: center;
 }
 
 /*---ESTILOS PARA PAGINA DE CATEGORIAS.PHP---*/
 .categoria_container {
-  
   display: flex;
   flex-wrap: wrap; /* Allow items to wrap into multiple lines */
   justify-content: space-between; /* Distribute items evenly between lines and sides */
   width: 100%; /* Make the container span the full width */
 }
 
-.imgCategoria{
+.imgCategoria {
   opacity: 0.8;
   border: 7px solid rgba(120, 205, 215, 0.8);
   border-radius: 10px;
 }
 
-.imgCategoria:hover{
+.imgCategoria:hover {
   opacity: 1;
   border: 3px solid rgba(254, 254, 254, 1);
 }
 
 .categoria {
   position: relative;
-  width: calc(50% - 20px); /* Set width for each category, considering margins */
+  width: calc(
+    50% - 20px
+  ); /* Set width for each category, considering margins */
   margin: 10px; /* Add spacing between categories */
   text-align: center; /* Center the content within each category */
 }
@@ -275,24 +282,29 @@ h2 {
 }
 
 .textoCentrado {
-  position:absolute;  
-    top: 50%;
-    left: 50%;
-    line-height: 1.5;
-    transform: translate(-50%, -50%);
-    /*background-color: rgba(255, 255, 255, 0.5);*/
-    padding: 10px;
-    border-radius: 5px;
-    text-decoration: none; /* Quitar subrayado del enlace */
-    color: red; /* Color del texto */
-    font-weight: bold;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  line-height: 1.5;
+  transform: translate(-50%, -50%);
+  /*background-color: rgba(255, 255, 255, 0.5);*/
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none; /* Quitar subrayado del enlace */
+  color: red; /* Color del texto */
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
 
 .textoCentrado:hover {
-  background-color: rgba(255, 255, 255, 0.3); /* Cambiar el color de fondo al pasar el ratón */
-  color: #F40E23;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Cambiar el color de fondo al pasar el ratón */
+  color: #f40e23;
 }
 
 /*---ESTILOS DE LA TABLA DE INVENTARIO---*/
@@ -303,14 +315,14 @@ h2 {
   margin-bottom: 25px;
 }
 
-.materiales th, .materiales td{
+.materiales th,
+.materiales td {
   border: 1px solid #000;
   padding: 8px; /* Espacio interior de las celdas */
   text-align: center; /* Centrar el contenido de las celdas */
 }
 
 /*---ETILOS PARA EL FORMULARIO DE formInventario.php---*/
-/* Estilos para el formulario */
 .formulario {
   width: 50%;
   margin: 50px auto;
@@ -318,6 +330,12 @@ h2 {
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
+}
+.formRegProd {
+  background-color: #78cdd7;
+}
+.formRegProd label {
+  font-weight: bold;
 }
 
 .h2inventario {
@@ -347,7 +365,7 @@ h2 {
 
 .formulario input[type="submit"] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px;
   border: none;
@@ -364,14 +382,13 @@ h2 {
   width: fit-content;
   margin: 20px auto; /* Centrar y agregar separación del botón */
   text-align: center;
-  color: #F40E23;
+  color: #f40e23;
   text-decoration: none;
 }
 
 .fminvRegresar:hover {
   text-decoration: underline;
 }
-
 
 /* Estilos para el formulario de registro de productos */
 form {
@@ -380,11 +397,6 @@ form {
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
-}
-
-h1 {
-  text-align: center;
-  color: #333;
 }
 
 label {
@@ -465,7 +477,7 @@ button[type="submit"]:hover {
 
 .paginacion .paginacion-anterior:before,
 .paginacion .paginacion-siguiente:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -479,17 +491,17 @@ button[type="submit"]:hover {
   transform: rotate(180deg);
 }
 
-
 /* Estilos para pantalla pequeña (smartphone) */
 @media screen and (max-width: 900px) {
-  .abrir-menu, .cerrar{
-display: block;
-font-size: 18px; /* Tamaño del icono */
-color: #d30dea; /* Color del icono */
-cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+  .abrir-menu,
+  .cerrar {
+    display: block;
+    font-size: 18px; /* Tamaño del icono */
+    color: #d30dea; /* Color del icono */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
   }
-  
-  .nav{
+
+  .nav {
     opacity: 0;
     visibility: hidden;
     display: flex;
@@ -507,11 +519,11 @@ cursor: pointer; /* Cambiar el cursor al pasar el mouse */
     z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
   }
 
-  .nav.visible{
+  .nav.visible {
     opacity: 1;
     visibility: visible;
   }
-  .nav-list{
+  .nav-list {
     flex-direction: column;
     align-items: end;
   }
@@ -524,15 +536,15 @@ cursor: pointer; /* Cambiar el cursor al pasar el mouse */
     height: 100px; /* Reducir el tamaño de la imagen en pantallas pequeñas */
   }
 
-  .secbody{
+  .secbody {
     margin-bottom: 140px;
     width: auto;
   }
-  .secbody .centrado{
+  .secbody .centrado {
     font-size: 20px;
     margin-top: 5px;
   }
-  footer{
+  footer {
     margin-top: 5px;
   }
   footer section {
@@ -546,11 +558,11 @@ cursor: pointer; /* Cambiar el cursor al pasar el mouse */
     padding: 20px; /* Agregar espacio entre los elementos y el borde del footer */
     background-color: #78cdd7;
   }
-  
+
   footer section div {
     margin-bottom: 10px; /* Espacio entre elementos */
   }
-  
+
   footer section img {
     width: 70px; /* Reducir el ancho de las imágenes */
     height: auto; /* Altura automática para mantener la proporción */
@@ -558,38 +570,233 @@ cursor: pointer; /* Cambiar el cursor al pasar el mouse */
   }
 }
 
-
 /* Estilos para la tabla de productos */
 .tabla_productos {
   width: 80%; /* Ancho de la tabla */
   border-collapse: collapse; /* Colapsar los bordes de la tabla */
   margin-top: 20px; /* Espacio superior */
+}
+
+.tabla_productos th,
+.tabla_productos td {
+  border: 1px solid #ddd !important; /* Añadir borde a las celdas */
+  padding: 8px; /* Espaciado interno */
+}
+
+.tabla_productos th {
+  background-color: #f2f2f2; /* Color de fondo para las celdas de encabezado */
+  text-align: left; /* Alinear texto a la izquierda */
+}
+
+/* Estilos para los bordes de la tabla */
+.tabla_productos th,
+.tabla_productos td {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabla_productos th:first-child,
+.tabla_productos td:first-child {
+  border-left: 1px solid #ddd;
+}
+
+.tabla_productos th:last-child,
+.tabla_productos td:last-child {
+  border-right: 1px solid #ddd;
+}
+
+/*----- ESTILOS PARA LA GALERIA FOTOGRAFICA -----*/
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Cuatro columnas iguales */
+  gap: 20px; /* Espacio entre las imágenes */
+  padding: 0 20px;
+}
+
+.foto {
+  text-align: center;
+  position: relative; /* Para asegurar el contenedor relativo */
+  border: 1px solid #000;
+  border-radius: 5px;
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+  height: 480px;
+}
+
+.foto img {
+  max-width: 100%;
+  height: auto;
+  max-height: 310px;
+}
+.foto p {
+  padding: 5px;
+}
+
+.paginacion {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.paginacion a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #007bff;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.paginacion a.active {
+  font-weight: bold;
+  color: #000;
+}
+
+.paginacion a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Estilos responsivos para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .foto {
+    width: calc(50% - 20px); /* 2 imágenes por fila en pantallas más pequeñas */
   }
-  
-  .tabla_productos th,
-  .tabla_productos td {
-    border: 1px solid #ddd !important; /* Añadir borde a las celdas */
-    padding: 8px; /* Espaciado interno */
+}
+
+@media screen and (max-width: 480px) {
+  .foto {
+    width: calc(100% - 20px); /* 1 imagen por fila en pantallas muy pequeñas */
   }
-  
-  .tabla_productos th {
-    background-color: #f2f2f2; /* Color de fondo para las celdas de encabezado */
-    text-align: left; /* Alinear texto a la izquierda */
-  }
-  
-  /* Estilos para los bordes de la tabla */
-  .tabla_productos th,
-  .tabla_productos td {
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .tabla_productos th:first-child,
-  .tabla_productos td:first-child {
-    border-left: 1px solid #ddd;
-  }
-  
-  .tabla_productos th:last-child,
-  .tabla_productos td:last-child {
-    border-right: 1px solid #ddd;
-  }
+}
+
+/*----- ESTILOS PARA LA PÁGINA DE LA FOTOGRAFIA -----*/
+.foto-detalle {
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  justify-content: center;
+}
+.foto_regresa {
+  text-decoration: none;
+  margin-top: 20px;
+  margin-left: 20px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 5px;
+}
+.foto_regresa:hover {
+  background: #04115a;
+  color: #78cdd7;
+  font-weight: bold;
+}
+
+/*----- ESTILOS PARA EL FORMULARIO DE CARGAR FOTOGRAFIA -----*/
+.formFoto {
+  width: 90%;
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.formFoto label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.formFoto .error {
+  border: 2px solid red;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+.formFoto input[type="text"],
+.formFoto input[type="file"],
+.formFoto textarea,
+.formFoto input[type="date"] {
+  width: 100%;
+  margin-bottom: 30px;
+  color: #000;
+}
+.formFoto input[type="text"],
+.formFoto textarea,
+.formFoto input[type="date"] {
+  padding: 10px;
+  background: none;
+  border: 2px solid #000;
+}
+.formFoto textarea {
+  min-height: 76px;
+  max-height: 150px;
+  max-width: 100%;
+  min-width: 100%;
+}
+.formFoto textarea:focus {
+  border: 2px solid #04115a;
+}
+.formFoto .formSubmit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background: #007bff;
+}
+.formFoto .submit {
+  text-align: center;
+  color: #fff;
+  margin: 5px;
+  padding: 15px 20px;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.926);
+  background: #007bff;
+  cursor: pointer;
+}
+.formFoto .submit:hover {
+  background: #0056b3;
+}
+
+/* Estilos para los botones submit */
+input[type="submit"],
+button[type="submit"] {
+  font-weight: bold; /* Hace el texto en negritas */
+  color: white; /* Hace el texto de color blanco */
+}
+
+/*----- ESTILOS PARA EL ASIDE DE FOTO.PHP -----*/
+.body-foto{
+  display: flex;
+   align-items: center;
+}
+.main-foto {
+  width: 80%;
+  float: left;
+  margin: 10px;
+  padding: 5px;
+}
+.main-foto img{
+  width: 80%;
+}
+aside {
+  width: 20%;
+  float: left;
+  height: auto;
+  margin: 10px;
+  padding: 5px;
+  background-color: #78cdd7;
+  justify-content: center;
+text-align: center;
+}
+.modificar,
+.borrar,
+.nueva{
+  margin: 15px;
+}
+.modificar a,
+.borrar a,
+.nueva a{
+  text-decoration: none;
+}
+.modificar:hover,
+.borrar:hover,
+.nueva:hover{
+  background-color: #ccc;
+}
+.foto-regresa {
+  float: calc(50%);
+}

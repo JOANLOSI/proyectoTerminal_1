@@ -3,12 +3,12 @@ include '../MODELO/conexion.php';
 
 // Verificar si se ha enviado un ID de producto válido
 if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $idProducto = $_GET['id'];
+    $idProducto = (int)$_GET['id']; // Convertir a entero para mayor seguridad
 
     // Consultar la base de datos para obtener los detalles del producto
     $sql = "SELECT * FROM productos WHERE IDProducto = :id";
     $stmt = $conexion->prepare($sql);
-    $stmt->bindParam(':id', $idProducto);
+    $stmt->bindParam(':id', $idProducto, PDO::PARAM_INT);
     $stmt->execute();
 
     // Verificar si se encontró el producto
@@ -44,9 +44,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <center>Editar Producto</center>
         </h2>
         <form action="../CONTROLADOR/editaInventario.php" method="POST">
-            <input type="hidden" name="id" value="<?php echo $producto['IDProducto']; ?>">
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($producto['IDProducto']); ?>">
             <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" value="<?php echo $producto['Nombre']; ?>"><br>
+            <input type="text" id="nombre" name="nombre" value="<?php echo htmlspecialchars(ucwords(strtolower($producto['Nombre']))); ?>"><br>
             <label for="categoria">Categoría:</label><br>
             <select id="categoria" name="categoria" required>
                 <option value="">Selecciona una categoría</option>
@@ -59,11 +59,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <span class="error"><?php echo $errores['categoria'] ?? ''; ?></span><br>
 
             <label for="descripcion">Descripción:</label><br>
-            <textarea id="descripcion" name="descripcion"><?php echo $producto['Descripcion']; ?></textarea><br>
+            <textarea id="descripcion" name="descripcion"><?php echo htmlspecialchars(ucfirst(strtolower($producto['Descripcion']))); ?></textarea><br>
             <label for="stock_minimo">Stock Mínimo:</label><br>
-            <input type="number" id="stock_minimo" name="stock_minimo" value="<?php echo $producto['StockMinimo']; ?>"><br>
+            <input type="number" id="stock_minimo" name="stock_minimo" value="<?php echo htmlspecialchars($producto['StockMinimo']); ?>"><br>
             <label for="existencia">Existencia:</label><br>
-            <input type="number" id="existencia" name="existencia" value="<?php echo $producto['CantidadStock']; ?>"><br><br>
+            <input type="number" id="existencia" name="existencia" value="<?php echo htmlspecialchars($producto['CantidadStock']); ?>"><br><br>
             <input type="submit" value="Actualizar">
         </form>
 

@@ -6,6 +6,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Categoría de Artículos</title>
    <link rel="stylesheet" href="../estilos/estilos.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="stylesheet" href="../estilos/font-awesome.min.css">
    <link rel="shorcut icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 
@@ -55,10 +57,10 @@
    </div>
 
    <!--MENU INFERIOR-->
-   <button class="abrir-menuInferior" id="abrir"><i class="fa-solid fa-bars"></i></button>
+   <!--<button class="abrir-menuInferior" id="abrir"><i class="fa-solid fa-bars"></i></button>-->
    <nav class="nav" id="nav">
 
-      <button class="cerrar" id="cerrar"><i class="fas fa-times"></i></button>
+      <!--<button class="cerrar" id="cerrar"><i class="fas fa-times"></i></button>-->
       <ul class="nav-list prinmenu">
          <li><a href="endodoncia.php">ENDODONCIA</a></li>
          <li><a href="ortodoncia.php">ORTODONCIA</a></li>
