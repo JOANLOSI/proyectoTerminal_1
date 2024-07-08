@@ -17,7 +17,7 @@
    include 'header.php';
    ?>
 
-   <h1 class="h_categoria">CATEGORIA DE ARTÍCULOS</h1>
+   <h2 class="h_categoria">CATEGORIA DE ARTÍCULOS</h2>
 
    <div class="categoria_container">
       <div class="categoria">
@@ -67,6 +67,7 @@
          <li><a href="instrumental.php">INSTRUMENTAL</a></li>
          <li><a href="equipos.php">EQUIPOS</a></li>
          <li><a href="diversos.php">DIVERSOS</a></li>
+         <li><a href="nuevaCategoria.php">NUEVA CATEGORÍA</a></li>
       </ul>
    </nav>
 

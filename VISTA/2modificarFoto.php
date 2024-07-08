@@ -1,40 +1,42 @@
 <?php
+include_once '../CONTROLADOR/procesaModificarFoto.php';
 
-// Inicializar variables
-$fotoID = null;
-$foto = null;
+// Obtener foto por ID si se ha enviado un formulario POST
+$fotoID = isset($_POST['id']) ? (int)$_POST['id'] : 0;
 
-// Verificar si se envió un formulario POST con un ID de foto
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-    $fotoID = (int)$_POST['id'];
-    include('../CONTROLADOR/procesaFoto.php');  // Incluir el archivo que procesa los datos de la foto
-}
-
-// Obtener la foto por ID
-if ($fotoID) {
+if ($fotoID > 0) {
     $foto = obtenerFotoPorID($fotoID);
+
+    // Verificar si se pudo obtener la foto
+    if (!$foto) {
+        die("Foto no encontrada.");
+    }
+} else {
+    $foto = null;
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modificar Foto</title>
+    <link rel="stylesheet" href="../estilos/normalize.css">
+    <link rel="stylesheet" href="../estilos/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
+
 <body>
     <?php include_once 'header.php'; ?>
 
     <div class="body-modificar-foto">
         <h2>Modificar Fotografía</h2>
-
         <form action="../CONTROLADOR/procesaModificarFoto.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($foto['FotoID'], ENT_QUOTES, 'UTF-8'); ?>">
-
-            <label for="categoria">Categoria</label>
-            <select id="categoria" name="categoria" required></select>
 
             <label for="nombreFoto">Nombre de la Foto:</label>
             <input type="text" id="nombreFoto" name="nombreFoto" value="<?php echo htmlspecialchars($foto['NombreFoto'], ENT_QUOTES, 'UTF-8'); ?>" required>
@@ -59,6 +61,4 @@ if ($fotoID) {
     <?php include_once 'footer.php'; ?>
 </body>
 
-</html>
-</body>
 </html>

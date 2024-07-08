@@ -1,5 +1,6 @@
 <?php
 include '../MODELO/conexion.php';
+include 'header.php';
 
 // Definir la cantidad de registros por página
 $registrosPorPagina = 5;
@@ -28,15 +29,9 @@ $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario</title>
-    <link rel="stylesheet" href="../estilos/normalize.css">
-    <link rel="stylesheet" href="../estilos/estilos.css">
-</head>
+
 <body>
-<?php include 'header.php'; ?>
+
 <div class="materiales">
     <h2 class="h2inventario">INVENTARIO</h2>
     <table class="tabla-inventario">

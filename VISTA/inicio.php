@@ -7,7 +7,7 @@
    include 'header.php';
    ?>
 
-<h1>INICIAR SESIÓN</h1>
+<h2>INICIAR SESIÓN</h2>
    <div class="formReg">
 
       <form action="../CONTROLADOR/procesaInicio.php" method="post" name="" id="formulario" class="registro">

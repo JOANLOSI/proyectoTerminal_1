@@ -1,11 +1,26 @@
 <?php
 // Controlador: procesaCargaFotos.php
 
+require_once '../MODELO/conexion.php';
 require_once '../MODELO/modCargaFoto.php';
 
-$message = '';
 $allowedFileTypes = ['image/jpeg', 'image/png', 'image/gif'];
 $maxFileSize = 2 * 1024 * 1024; // 2MB
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']) && $_GET['action'] == 'getCategorias') {
+    // Obtener categorías desde la base de datos
+    try {
+        $stmt = $conexion->prepare("SELECT CategoriaID, Nombre FROM categorias");
+        $stmt->execute();
+        $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($categorias);
+    } catch (PDOException $e) {
+        echo json_encode([]);
+    }
+    exit();
+}
+
+$message = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $titulo = isset($_POST['titulo']) ? htmlspecialchars(trim($_POST['titulo'])) : '';
@@ -14,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $categoria = isset($_POST['categoria']) ? htmlspecialchars(trim($_POST['categoria'])) : '';
     
     // Validar campos
-    if (empty($titulo) || empty($descripcion) || empty($fechaCarga)) {
+    if (empty($titulo) || empty($descripcion) || empty($fechaCarga) || empty($categoria)) {
         $message = "Todos los campos son obligatorios.";
         showMessageAndRedirect($message);
     }
@@ -49,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Verificar si el directorio de destino existe, si no, crearlo
         if (!is_dir($directorioDestino)) {
             if (!mkdir($directorioDestino, 0777, true)) {
-               $message = "Error al crear el directorio 'uploads'.";
+                $message = "Error al crear el directorio 'uploads'.";
                 showMessageAndRedirect($message);
             }
         }
@@ -60,19 +75,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             showMessageAndRedirect($message);
         }
 
-        $rutaArchivo = $directorioDestino . $nombreArchivo;
+        // Ensure the filename is unique
+        $rutaArchivo = $directorioDestino . time() . "_" . $nombreArchivo;
 
         // Mover el archivo subido al directorio de destino
         if (move_uploaded_file($foto['tmp_name'], $rutaArchivo)) {
             // Guardar la información en la base de datos
             $urlImagen = $rutaArchivo;
 
-            $resultado = guardarFoto($titulo, $descripcion, $urlImagen, $fechaCarga, $categoria);
+            try {
+                $resultado = guardarFoto($titulo, $descripcion, $urlImagen, $fechaCarga, $categoria);
 
-            if ($resultado) {
-                $message = "Fotografía guardada correctamente.";
-            } else {
-                $message = "Error al guardar la fotografía.";
+                if ($resultado) {
+                    $message = "Fotografía guardada correctamente.";
+                } else {
+                    $message = "Error al guardar la fotografía.";
+                }
+            } catch (Exception $e) {
+                $message = "Error al guardar la fotografía: " . $e->getMessage();
             }
         } else {
             $message = "Error al subir la fotografía.";

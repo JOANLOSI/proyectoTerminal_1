@@ -5,14 +5,17 @@ include('../CONTROLADOR/procesaGaleria.php');  // Incluye el archivo que procesa
 <body>
     <?php include_once 'header.php'; ?>
 
-    <h1>Galería Fotográfica</h1>
+    <h2>GALERÍA FOTOGRÁFICA</h2>
     <div class="galeria">
         <?php foreach ($galeria as $foto): ?>  <!-- Itera sobre las fotos de la galería -->
             <div class="foto">
                 <h2><?php echo htmlspecialchars($foto['NombreFoto'], ENT_QUOTES, 'UTF-8'); ?></h2>  <!-- Escapar HTML -->
-                <a href="foto.php?id=<?php echo htmlspecialchars($foto['FotoID'], ENT_QUOTES, 'UTF-8'); ?>">
-                    <img src="<?php echo htmlspecialchars($foto['URLImagen'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($foto['NombreFoto'], ENT_QUOTES, 'UTF-8'); ?>">
-                </a>
+                <form action="foto.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($foto['FotoID'], ENT_QUOTES, 'UTF-8'); ?>">
+                    <button type="submit">
+                        <img src="<?php echo htmlspecialchars($foto['URLImagen'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($foto['NombreFoto'], ENT_QUOTES, 'UTF-8'); ?>">
+                    </button>
+                </form>
                 <p><?php echo htmlspecialchars($foto['Descripcion'], ENT_QUOTES, 'UTF-8'); ?></p>
                 <p><small>Fecha de carga: <?php echo htmlspecialchars($foto['FechaCarga'], ENT_QUOTES, 'UTF-8'); ?></small></p>
             </div>

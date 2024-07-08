@@ -7,6 +7,7 @@
    include 'header.php';
    ?>
 
+   <h2>REGISTRO DE USUARIO</h2>
    <div class="formReg">
 
       <form action="../CONTROLADOR/procesaRegistro.php" method="post" name="" id="formulario" class="registro">

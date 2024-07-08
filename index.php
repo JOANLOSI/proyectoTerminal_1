@@ -16,10 +16,9 @@
 </head>
 
 <body>
-    <header class="pinicio"> 
-
+    <header class="pinicio">
         <section class="secheader">
-            <img src="img/logo2.jpg" width="197" alt="">
+            <img src="img/logo2.jpg" width="197" alt="Logo de la empresa">
         </section>
         
         <button class="abrir-menu" id="abrir"><i class="fa-solid fa-bars"></i></button>
@@ -28,7 +27,14 @@
         <button class="cerrar" id="cerrar"><i class="fas fa-times"></i></button>
             <ul class="nav-list prinmenu">
                 <li><a href="index.php">INICIO</a></li>
-                <li><a href="VISTA/categorias.php">CATEGORIAS</a></li>
+                <li id="categorias-menu">
+                    <a href="#">CATEGORIAS</a>
+                    <ul id="categorias-submenu" style="display: none;">
+                        <li><a href="VISTA/nuevaCategoria.php">Nueva Categoría</a></li>
+                        <li><a href="VISTA/editaCategoria.php">Editar</a></li>
+                        <li><a href="VISTA/borraCategoria.php">Borrar Categoría</a></li>
+                    </ul>
+                </li>
                 <li id="inventario-menu">
                     <a href="#">INVENTARIO</a>
                     <ul id="inventario-submenu" style="display: none;">
@@ -47,8 +53,6 @@
 
     </header>
     <h1>DEPOSITO DENTAL HERSAN</h1>
-    </header>
-
 
     <section class="secbody">
         <img src="img/imagen_principal.jpg" width="1000" alt="imagen de inicio" title="instrumental" />
@@ -71,18 +75,34 @@
 
     <script>
         // Obtener elementos del menú
+        const categoriasMenu = document.getElementById('categorias-menu');
+        const categoriasSubmenu = document.getElementById('categorias-submenu');
         const inventarioMenu = document.getElementById('inventario-menu');
         const inventarioSubmenu = document.getElementById('inventario-submenu');
         const nav = document.querySelector("#nav");
         const abrir = document.querySelector("#abrir");
-        const cerrar = document.querySelector("#cerrar"); 
+        const cerrar = document.querySelector("#cerrar");
 
-        abrir.addEventListener("click", () =>{
+        abrir.addEventListener("click", () => {
             nav.classList.add("visible");
-        })
-        cerrar.addEventListener("click", () =>{
+        });
+        cerrar.addEventListener("click", () => {
             nav.classList.remove("visible");
-        })
+        });
+
+        // Agregar evento click al menú Categorías
+        categoriasMenu.addEventListener('click', (event) => {
+            // Alternar la visibilidad del submenu
+            categoriasSubmenu.style.display = categoriasSubmenu.style.display === 'none' ? 'block' : 'none';
+
+            // Verificar si el click fue en el enlace principal de "Categorías"
+            if (event.target.tagName === 'A' && event.target.parentElement === categoriasMenu) {
+                event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+                setTimeout(() => {
+                    window.location.href = "VISTA/categorias.php";
+                }, 3000); // Retrasar la redirección para permitir la visualización del submenú
+            }
+        });
 
         // Agregar evento click al menú Inventario
         inventarioMenu.addEventListener('click', () => {
@@ -93,4 +113,3 @@
 </body>
 
 </html>
-

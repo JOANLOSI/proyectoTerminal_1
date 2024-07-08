@@ -204,7 +204,7 @@ body {
 .secbody .centrado {
   position: absolute; /* Posición absoluta para colocar el texto */
   font-size: 40px;
-  color: red;
+  color: #fff;
   font-weight: bold; /* Texto en negrita */
   bottom: 10px; /* Alineación en la parte inferior */
   left: 10px; /* Alineación a la izquierda */
@@ -239,6 +239,20 @@ footer section img {
 h2 {
   margin-top: 5px;
   margin-bottom: 25px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 30px 0;
+}
+
+/*ESTILOS PARA EL BOTÓN DEL FORMULARIO REGISTRAR NUEVA CATEGORIA*/
+.inputRegCategoria{
+  background-color: #007bff;
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 10px;
 }
 
 /* Estilos para el párrafo de registrate*/
@@ -758,45 +772,93 @@ button[type="submit"] {
   color: white; /* Hace el texto de color blanco */
 }
 
-/*----- ESTILOS PARA EL ASIDE DE FOTO.PHP -----*/
-.body-foto{
+/* Estilos para el aside de foto.php */
+.body-foto {
   display: flex;
-   align-items: center;
+  align-items: center;
 }
+
 .main-foto {
   width: 80%;
   float: left;
   margin: 10px;
   padding: 5px;
 }
-.main-foto img{
-  width: 80%;
+
+.main-foto img {
+  width: 100%; /* Ajustar imagen al 100% del contenedor */
+  height: auto; /* Altura automática para mantener la proporción */
 }
+
 aside {
   width: 20%;
   float: left;
-  height: auto;
   margin: 10px;
   padding: 5px;
   background-color: #78cdd7;
-  justify-content: center;
-text-align: center;
+  text-align: center;
+  color: #f9f9f9;
 }
-.modificar,
-.borrar,
-.nueva{
-  margin: 15px;
+
+aside form {
+  margin: 15px 0; /* Añadir margen superior e inferior a los formularios */
 }
-.modificar a,
-.borrar a,
-.nueva a{
+
+aside button {
+  display: block; /* Mostrar botones como bloques para ocupar todo el ancho */
+  width: 80%; /* Ancho del botón al 80% del contenedor */
+  margin: 0 auto; /* Centrar botones horizontalmente */
+  padding: 10px;
+  background: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+aside button:hover {
+  background-color: #555; /* Cambiar color de fondo al pasar el ratón */
+}
+
+aside a {
+  display: block;
   text-decoration: none;
+  color: #fff;
 }
-.modificar:hover,
-.borrar:hover,
-.nueva:hover{
-  background-color: #ccc;
+
+aside a:hover {
+  text-decoration: underline; /* Subrayar enlace al pasar el ratón */
+}
+
+.imgActual{
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+.nueva{
+  margin-top: 20px;
 }
 .foto-regresa {
   float: calc(50%);
+}
+.body-modificar-foto .formSubmit{
+  display: flex;
+  margin: 20px 0;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background: #007bff;
+}
+.body-modificar-foto .submit:hover{
+  background: #0056b3;
+}
+.body-modificar-foto .submit{
+  text-align: center;
+  color: #fff;
+  margin: 5px;
+  padding: 15px 20px;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.926);
+  background: #007bff;
+  cursor: pointer;
 }
