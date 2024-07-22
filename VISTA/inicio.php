@@ -8,6 +8,7 @@
    ?>
 
 <h2>INICIAR SESIÓN</h2>
+<div class="body-modificar-foto">
    <div class="formReg">
 
       <form action="../CONTROLADOR/procesaInicio.php" method="post" name="" id="formulario" class="registro">
@@ -33,8 +34,8 @@
          </div>
          <br />
 
-         <div class="submit">
-         <input type="submit" name="submit" value="INGRESAR">
+         <div class="formSubmit">
+         <input type="submit" class="submit" name="submit" value="Ingresar">
          </div>
 
       </form>
@@ -43,9 +44,7 @@
 
    </div>
 
-   <?php
-include 'footer.php';
-?>
+   <?php include 'footer.php'; ?>
 
 <script>
       // Función para eliminar el mensaje de error después de 3 segundos
@@ -64,6 +63,6 @@ include 'footer.php';
 
    <!--<script src="../js/formulario.js"></script>-->
    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-
+</div>
 </body>
 </html>

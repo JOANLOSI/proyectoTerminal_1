@@ -29,7 +29,11 @@ $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 ?>
 <!DOCTYPE html>
 <html lang="es">
-
+<head>
+    <meta charset="UTF-8">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de tener este enlace a tu archivo CSS -->
+</head>
 <body>
 
 <div class="materiales">
@@ -37,7 +41,6 @@ $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
     <table class="tabla-inventario">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>NOMBRE</th>
                 <th>CATEGORIA</th>
                 <th>DESCRIPCION</th>
@@ -50,20 +53,23 @@ $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
             <?php if (count($resultado) > 0): ?>
                 <?php foreach ($resultado as $row): ?>
                     <tr>
-                        <td><?= htmlspecialchars($row['IDProducto']) ?></td>
                         <td><?= htmlspecialchars($row['Nombre']) ?></td>
                         <td><?= htmlspecialchars($row['categoria']) ?></td>
                         <td><?= htmlspecialchars($row['Descripcion']) ?></td>
                         <td><?= htmlspecialchars($row['StockMinimo']) ?></td>
                         <td><?= htmlspecialchars($row['CantidadStock']) ?></td>
                         <td>
-                            <a href="formInventario.php?id=<?= htmlspecialchars($row['IDProducto']) ?>" class="enlace-editar">Editar</a> |
-                            <a href="../CONTROLADOR/borraInventario.php?id=<?= htmlspecialchars($row['IDProducto']) ?>" class="enlace-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">Eliminar</a>
+                            <a href="formInventario.php?id=<?= htmlspecialchars($row['IDProducto']) ?>" class="enlace-editar">
+                                <i class="fas fa-edit"></i> <!-- Icono de editar -->
+                            </a>
+                            <a href="../CONTROLADOR/borraInventario.php?id=<?= htmlspecialchars($row['IDProducto']) ?>" class="enlace-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">
+                                <i class="fas fa-trash"></i> <!-- Icono de eliminar -->
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
-                <tr><td colspan="7">No se encontraron productos</td></tr>
+                <tr><td colspan="6">No se encontraron productos</td></tr>
             <?php endif; ?>
         </tbody>
     </table>

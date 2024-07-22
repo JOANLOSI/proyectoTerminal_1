@@ -39,10 +39,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
     <?php include 'header.php'; ?>
 
-    <div class="formulario">
-        <h2>
-            <center>Editar Producto</center>
-        </h2>
+
+    <h2>
+        <center>EDITAR PRODUCTO</center>
+    </h2>
+    <div class="body-modificar-foto">
         <form action="../CONTROLADOR/editaInventario.php" method="POST">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($producto['IDProducto']); ?>">
             <label for="nombre">Nombre:</label><br>
@@ -64,13 +65,15 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <input type="number" id="stock_minimo" name="stock_minimo" value="<?php echo htmlspecialchars($producto['StockMinimo']); ?>"><br>
             <label for="existencia">Existencia:</label><br>
             <input type="number" id="existencia" name="existencia" value="<?php echo htmlspecialchars($producto['CantidadStock']); ?>"><br><br>
-            <input type="submit" value="Actualizar">
+            <div class="formSubmit">
+                <input type="submit" class="submit" value="Actualizar">
+            </div>
+            <a href="inventario.php" class="fminvRegresar">REGRESAR</a>
         </form>
-
-        <a href="inventario.php" class="fminvRegresar">REGRESAR</a>
+        <br />
     </div>
-
-    <?php include 'footer.php'; ?>
+    <?php require_once 'footer.php'; ?>
+</body>
 
 </body>
 

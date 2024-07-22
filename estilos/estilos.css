@@ -186,11 +186,11 @@ body {
 }
 .register-text a {
   text-decoration: none;
-  color: #04515a;
+  color: #000;
 }
 .register-text a:hover {
   text-decoration: underline;
-  color: #188013;
+  font-weight: bold;
 }
 
 /* Estilos para la imagen dentro de secbody */
@@ -253,6 +253,12 @@ h2 {
   border-radius: 10px;
   margin: 15px;
   padding: 10px;
+  cursor: pointer;
+}
+/* Contenedor del botón para centrarlo */
+.submit-container {
+  text-align: center; /* Centra el contenido del contenedor */
+  margin-top: 20px; /* Opcional: Espacio arriba del botón */
 }
 
 /* Estilos para el párrafo de registrate*/
@@ -321,19 +327,45 @@ h2 {
   color: #f40e23;
 }
 
-/*---ESTILOS DE LA TABLA DE INVENTARIO---*/
-/* Estilos para la tabla */
-.materiales table {
-  margin: 0 auto; /* Centrar la tabla */
-  border-collapse: collapse;
-  margin-bottom: 25px;
+.tabla-inventario {
+  width: 100%;
+  border-collapse: collapse; /* Elimina espacios entre bordes */
 }
 
-.materiales th,
-.materiales td {
-  border: 1px solid #000;
-  padding: 8px; /* Espacio interior de las celdas */
-  text-align: center; /* Centrar el contenido de las celdas */
+.tabla-inventario th,
+.tabla-inventario td {
+  padding: 8px;
+  text-align: left;
+}
+
+.tabla-inventario th {
+  background-color: #f2f2f2;
+}
+
+.tabla-inventario td,
+.tabla-inventario th {
+  border: none; /* Elimina los bordes */
+}
+
+/* Estilo para los enlaces de editar y eliminar */
+.enlace-editar,
+.enlace-eliminar {
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: inherit; /* Hereda el color del elemento padre */
+  font-size: 20px; /* Tamaño del icono */
+  margin: 0 5px; /* Espacio entre los iconos */
+}
+
+.enlace-editar i,
+.enlace-eliminar i {
+  font-size: 20px; /* Tamaño del icono */
+  vertical-align: middle; /* Alineación vertical del icono */
+}
+
+/* Asegúrate de incluir FontAwesome para los iconos */
+.fas {
+  font-family: 'Font Awesome 5 Free'; /* Fuente para los iconos */
+  font-weight: 900; /* Peso de los iconos */
 }
 
 /*---ETILOS PARA EL FORMULARIO DE formInventario.php---*/
@@ -388,7 +420,7 @@ h2 {
 }
 
 .formulario input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #0076ff;
 }
 
 .fminvRegresar {
@@ -396,7 +428,8 @@ h2 {
   width: fit-content;
   margin: 20px auto; /* Centrar y agregar separación del botón */
   text-align: center;
-  color: #f40e23;
+  color: #000;
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -861,4 +894,226 @@ aside a:hover {
   border: 2px solid rgba(255, 255, 255, 0.926);
   background: #007bff;
   cursor: pointer;
+}
+
+
+/*---- ESTILOS PARA LA LISTA DE PROVEEDORES ----*/
+.proveedor {
+            width: 40%;
+            margin: 2.5%;
+            border: 2px solid #000;
+            border-radius: 5px;
+            background-color: #78cdd7;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative; /* Para alinear los iconos */
+            display: inline-block;
+            vertical-align: top; /* Alineación superior */
+            text-align: center; /* Centrar contenido */
+            position: relative; /* Posición relativa para los iconos */
+        }
+        .proveedor:hover{
+          border: 2px solid #fff;
+        }
+        .proveedor h3 {
+            margin-bottom: 15px;
+        }
+        .proveedor p {
+            margin-bottom: 10px;
+        }
+        .proveedor p.email{
+          margin-bottom: 35px;
+        }
+        .acciones {
+          position: absolute;
+          bottom: 10px; /* Alinear abajo */
+          left: 50%; /* Centrar horizontalmente */
+          transform: translateX(-50%); /* Ajuste fino */
+          text-align: center; /* Alinear contenido */
+          width: 100%; /* Ocupar todo el ancho */
+      }
+      .acciones a {
+          margin: 0 10px; /* Separación entre los iconos */
+          text-decoration: none;
+          color: #333; /* Color del icono */
+          font-size: 20px; /* Tamaño del icono */
+          transition: color 0.3s ease; /* Transición para el color */
+          display: inline-block; /* Alinear los iconos */
+          position: relative; /* Posicion relativa para los tooltips */
+      }
+      .acciones a:hover {
+          color: #007bff; /* Color al pasar el cursor */
+      }
+      .acciones a span {
+          display: none;
+          position: absolute;
+          background-color: rgba(0, 0, 0, 0.8); /* Fondo del tooltip */
+          color: #fff; /* Color del texto del tooltip */
+          padding: 5px 10px; /* Espaciado dentro del tooltip */
+          border-radius: 5px; /* Bordes redondeados */
+          font-size: 12px; /* Tamaño del texto del tooltip */
+          white-space: nowrap; /* Evitar saltos de línea */
+          z-index: 1; /* Colocar sobre los iconos */
+          opacity: 0; /* Inicialmente oculto */
+          transition: opacity 0.3s ease; /* Transición para la opacidad */
+          bottom: calc(100% + 5px); /* Posición respecto al icono */
+          left: 50%; /* Centrado horizontal */
+          transform: translateX(-50%); /* Ajuste fino */
+      }
+      .acciones a:hover span {
+          display: block; /* Mostrar al pasar el cursor */
+          opacity: 1; /* Mostrar el tooltip */
+      }
+      .clear {
+        clear: both;
+    }
+
+
+    /*--- ESTILOS DE LAS PÁGINAS DE LA MISIÓN ---*/
+    .container-mision {
+      position: relative;
+      text-align: center;
+      overflow: hidden; /* Evitar que la imagen no desborde el contenedor */
+      width: 100%;
+  }
+  
+  .marco {
+      width: 100%; /* Ajustar el tamaño de la imagen */
+      max-width: 800px; /* Tamaño máximo para evitar que se haga demasiado grande en pantallas grandes */
+      height: auto; /* Mantener la proporción de la imagen */
+      margin: 0 auto; /* Centrar la imagen horizontalmente */
+      display: block;
+  }
+  
+  .texto {
+      font-family: Algerian, sans-serif; /* Asegurar fuente alternativa si no está disponible */
+      font-weight: bold;
+      color: #000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%; /* Asegurar que el texto no se extienda demasiado */
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center; /* Centrar el texto dentro del contenedor */
+  }
+  
+  .mision {
+      margin: 0;
+      text-align: center;
+  }
+  .editar{
+    
+  }
+
+/*--- ESTILOS DE LAS PÁGINAS DE LA VISION ---*/
+.container-mision {
+  position: relative;
+  text-align: center;
+  overflow: hidden; /* Evitar que la imagen no desborde el contenedor */
+  width: 100%;
+}
+.marco {
+width: 100%;
+height: 100%;
+margin: 0 auto; /* Centrar la imagen horizontalmente */
+display: block;
+}
+.texto {
+font-family: Algerian;
+font-weight: bold;
+color: #000;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 40%;
+font-size: 18px;
+line-height: 1.6;
+}
+.mision{
+margin: 0;
+text-align: center;
+}
+
+/*--- ESTILOS DE LA PÁGINA DE VALORES ---*/
+.container-valores {
+  position: relative;
+  text-align: center;
+  overflow: hidden; /* Evitar que la imagen no desborde el contenedor */
+  width: 100%;
+}
+.marco-valores {
+width: 80%;
+height: auto;
+margin: 0 auto; /* Centrar la imagen horizontalmente */
+display: block;
+}
+.texto-valores {
+font-family: Algerian;
+font-weight: bold;
+color: #000;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 60%;
+max-width: 90%;
+font-size: 18px;
+line-height: 1.6;
+text-align: justify;
+}
+.valores{
+margin: 0 0 1rem 0;
+text-align: center;
+}
+.texto-valores br {
+  margin-bottom: 20px; /* Ajusta el valor según sea necesario */
+  display: block;
+  content: "";
+}
+
+
+
+
+/*--- ESTILOS PARA EL BOTÓN DE EDITAR MISION ---*/
+.editar{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 10px 20px;
+  width: fit-content;
+  background-color: #78cdd7;
+  border: 2px solid #000;
+  border-radius: 5px;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: #78cdd7;
+  width: auto;
+  
+  text-align: center;*/
+  /*width: calc(20% - 40px); /* Ancho total ajustado con 40px menos que el 100% del contenedor */
+}
+.editar:hover{
+  border: 2px solid #fff;
+}
+.editarMision{
+  display: block;  
+  padding: 10px 20px;
+  text-align: center;
+  color: #000;
+  background-color: #aee7ee;
+  text-decoration: none;
+  border: 2px solid #000;
+  border-radius: 5px;
+  width: fit-content;
+  font-weight: bold;
+}
+.editarMision:hover{
+  background-color: #0056b3;
+  border: 2px solid #fff;
 }

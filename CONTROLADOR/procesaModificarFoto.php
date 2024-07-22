@@ -1,45 +1,34 @@
 <?php
+include_once '../MODELO/conexion.php';
 include_once '../MODELO/modModificaFoto.php';
 
 // Verificar si se recibió un formulario POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $fotoID = isset($_POST['id']) ? (int)$_POST['id'] : 0;
-    $nombreFoto = $_POST['nombreFoto'] ?? '';
-    $descripcion = $_POST['descripcion'] ?? '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Obtener y validar datos del formulario
+    $fotoID = (int)$_POST['id'];
+    $nombreFoto = $_POST['nombreFoto'];
+    $descripcion = $_POST['descripcion'];
+    $categoriaID = (int)$_POST['categoria'];
 
-    // Verificar si se subió una nueva imagen
-    if ($_FILES['nuevaImagen']['error'] === UPLOAD_ERR_OK) {
+    // Procesar la imagen si se subió una nueva
+    $rutaImagen = null;
+    if ($_FILES['nuevaImagen']['size'] > 0) {
         $rutaImagen = subirImagen($_FILES['nuevaImagen']);
-        if (!$rutaImagen) {
-            die("Error al subir la imagen.");
-        }
-    } else {
-        $rutaImagen = null;
     }
 
-    // Guardar los cambios en la base de datos
-    if (modificarFoto($fotoID, $nombreFoto, $descripcion, $rutaImagen)) {
-        // Redirigir a la página de detalles de la foto actualizada
-        header("Location: ../VISTA/galeria.php");
-        exit();
+    // Llamar a la función para modificar la foto en la base de datos
+    $exito = modificarFoto($fotoID, $nombreFoto, $descripcion, $categoriaID, $rutaImagen);
+
+    // Redirigir con un parámetro success basado en el resultado de la modificación
+    if ($exito) {
+        header('Location: ../VISTA/modificarFoto.php?success=1&id=' . $fotoID);
     } else {
-        die("Error al intentar modificar la foto.");
+        header('Location: ../VISTA/modificarFoto.php?success=0&id=' . $fotoID);
     }
-}
-
-// Función para subir la nueva imagen
-function subirImagen($imagen) {
-    // Directorio donde se guardarán las imágenes
-    $directorio = '../uploads/';
-
-    // Generar un nombre único para la imagen
-    $nombreArchivo = uniqid('img_') . '_' . $imagen['name'];
-
-    // Mover la imagen al directorio deseado
-    if (move_uploaded_file($imagen['tmp_name'], $directorio . $nombreArchivo)) {
-        return $directorio . $nombreArchivo; // Devuelve la ruta completa de la imagen
-    } else {
-        return null;
-    }
+    exit();
+} else {
+    // Redirigir si se intenta acceder directamente sin método POST
+    header('Location: ../VISTA/galeria.php');
+    exit();
 }
 ?>

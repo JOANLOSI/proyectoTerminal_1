@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             alert(mensaje);
             setTimeout(function() {
                 window.location.href = "<?php echo $_SERVER['PHP_SELF']; ?>";
-            }, 3000); // Redirigir después de 3 segundos
+            }, 2000); // Redirigir después de 3 segundos
         }
     </script>
 </head>

@@ -16,23 +16,28 @@
 
 <body>
    <?php include 'header.php'; ?>
-   <h2>NUEVA CATEGORÍA</h2>
+   <div class="body-modificar-foto">
+      <h2>NUEVA CATEGORÍA</h2>
 
-   <?php
-   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      require '../CONTROLADOR/registroCategoria.php';
-   }
-   ?>
+      <?php
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+         require '../CONTROLADOR/registroCategoria.php';
+      }
+      ?>
 
-   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-      <label for="Nombre">Nombre:</label>
-      <input type="text" id="Nombre" name="Nombre" required>
-      <br>
-      <input type="submit" value="Registrar Categoría" class="inputRegCategoria">
-      <div style="text-align: right; margin-top: 10px;">
-        <a href="categorias.php" style="text-decoration: none; color: #333;">Regresar</a>
-    </div>
-   </form>
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+         <label for="Nombre">Nombre:</label>
+         <input type="text" id="Nombre" name="Nombre" required>
+         <br>
+
+         <div class="formSubmit">
+            <input type="submit" name="submit" class="submit" value="REGISTRAR CATEGORIA">
+         </div>
+         <div style="text-align: right; margin-top: 10px;">
+            <a class="fminvRegresar" href="categorias.php">Regresar</a>
+         </div>
+      </form>
+   </div>
 </body>
 <?php require_once 'footer.php'; ?>
 

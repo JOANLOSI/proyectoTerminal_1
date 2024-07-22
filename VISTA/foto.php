@@ -30,6 +30,10 @@ if ($fotoID) {
         function confirmarBorrado() {
             return confirm('¿Estás seguro de que deseas borrar esta imagen? Esta acción no se puede deshacer.');
         }
+
+        function confirmarModificacion() {
+            return confirm('¿Estás seguro de que deseas modificar los datos de esta fotografía?');
+        }
     </script>
 </head>
 
@@ -62,17 +66,16 @@ if ($fotoID) {
                 </form>
 
                 <!-- Formulario para editar la imagen -->
-                <form class="modificar" action="modificarFoto.php" method="post">
+                <form class="modificar" action="modificarFoto.php" method="post" onsubmit="return confirmarModificacion();">
                     <input type="hidden" name="id" value="<?php echo htmlspecialchars($foto['FotoID'], ENT_QUOTES, 'UTF-8'); ?>">
                     <button type="submit">Editar</button>
                 </form>
 
-                
-                    <form class="nueva" action="formFoto.php" method="post">
-                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($fotoID, ENT_QUOTES, 'UTF-8'); ?>">
-                        <button type="submit">Nueva Imagen</button>
-                    </form>
-                
+                <!-- Formulario para crear una nueva imagen -->
+                <form class="nueva" action="formFoto.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($fotoID, ENT_QUOTES, 'UTF-8'); ?>">
+                    <button type="submit">Nueva Imagen</button>
+                </form>
             </div>
         </aside>
     </div>

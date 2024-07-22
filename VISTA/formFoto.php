@@ -61,7 +61,7 @@
          </div>
       </form>
 
-      <a href="galeria.php" class="foto_regresa">REGRESAR</a>
+      <a href="galeria.php" class="fminvRegresar">REGRESAR</a>
       <?php include_once 'footer.php'; ?>
    </div>
 </body>
